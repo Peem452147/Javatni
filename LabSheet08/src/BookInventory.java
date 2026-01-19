@@ -1,0 +1,2 @@
+public class BookInventory {
+}
