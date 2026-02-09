@@ -1,0 +1,38 @@
+package CoffeeShop;
+
+public abstract class Drink {
+    private String drinkName;
+    private double basePrice;
+    private String size;
+
+    public Drink(String drinkName, double basePrice, String size) {
+        this.drinkName = drinkName;
+        this.basePrice = basePrice;
+        this.size = size;
+    }
+
+    public String getDrinkName() {
+        return drinkName;
+    }
+    @Override
+    public double getBasePrice(){
+        return this.basePrice;
+    }
+    @Override
+    public double getSizeExtra(){
+        if (this.size.equalsIgnoreCase("S"))
+            return 0;
+        if (this.size.equalsIgnoreCase("M"))
+            return 10;
+        if (this.size.equalsIgnoreCase("L"))
+            return 15;
+        return -1;
+    }
+
+
+    public abstract double calculateFinalBill();
+
+    public String toString() {
+        return "Your order: " + this.drinkName + "(Size: " + this.size + ")";
+    }
+}
